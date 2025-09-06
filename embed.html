@@ -11,7 +11,7 @@
 
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/global-expansion-widget@0.0.0/dist/global-expansion-map.umd.js"></script>
+    <script src="https://unpkg.com/global-expansion-widget@0.0.1/dist/global-expansion-map.umd.js"></script>
     <script>
       (async function () {
         const u = new URL(location.href);
@@ -24,8 +24,8 @@
             return r.json();
           });
 
-          const Comp = window.GlobalExpansionMap && window.GlobalExpansionMap.GlobalExpansionMap;
-          if (!Comp) throw new Error('Widget not loaded from CDN');
+          const Comp = (window.GlobalExpansionMap && window.GlobalExpansionMap.GlobalExpansionMap);
+          if (!Comp) throw new Error('Widget not loaded');
 
           const root = ReactDOM.createRoot(document.getElementById('root'));
           root.render(React.createElement(Comp, {
